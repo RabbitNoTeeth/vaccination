@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">疫苗接种</string>
+    <string name="tab_index">首页</string>
+    <string name="tab_my">我的</string>
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_16"
+        android:padding="@dimen/dp_10"
+        android:textColor="@color/gray1"
+        android:text="疫苗名称"
+        />
+    <TextView
+        android:id="@+id/tv_people"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_14"
+        android:paddingLeft="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        app:layout_constraintEnd_toStartOf="@+id/tv_time"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/gray2"
+        android:text="接种人:小明"
+        />
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_14"
+        android:gravity="right"
+        android:paddingRight="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/gray2"
+        android:text="接种时间：2018-12-12"
+        />
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_14"
+        android:padding="@dimen/dp_10"
+        android:gravity="right"
+        app:layout_constraintTop_toBottomOf="@+id/tv_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/blue"
+        android:text="状态：已接种"
+        />
+
+
+</android.support.constraint.ConstraintLayout>

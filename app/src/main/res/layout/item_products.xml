@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp_10"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="@dimen/dp_80"
+        android:src="@mipmap/temp"
+        android:scaleType="centerCrop"
+        />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/img"
+        app:layout_constraintTop_toTopOf="@+id/img"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="店名"
+        android:layout_marginLeft="@dimen/dp_6"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/gray1"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/img"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginLeft="@dimen/dp_6"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="商品"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@color/gray2"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/img"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="@dimen/dp_6"
+        app:layout_constraintStart_toEndOf="@+id/img"
+        android:text="地址"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@color/gray2"/>
+
+</android.support.constraint.ConstraintLayout>

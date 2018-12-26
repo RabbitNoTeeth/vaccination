@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <com.god.gl.vaccination.widget.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_name="接种查询"
+        app:right_title_name="标准时间表"
+        app:right_title_show="true"
+        />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="@dimen/dp_10"
+            >
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:background="@drawable/rectangle"
+                android:hint="请输入疫苗名称、儿童姓名"
+                android:paddingLeft="@dimen/dp_4"
+                android:maxLines="1"
+                android:textColor="@color/gray2"
+                android:textColorHint="@color/gray3"
+                android:textSize="@dimen/sp_14"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignRight="@+id/et_search"
+                android:padding="@dimen/dp_8"
+                android:src="@mipmap/ic_search"/>
+        </RelativeLayout>
+        <include layout="@layout/view_refresh"/>
+</LinearLayout>

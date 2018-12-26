@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_196">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_196"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/temp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="巨立鑫预防接种系统"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/sp_25"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:padding="@dimen/dp_10"
+            />
+        <TextView
+            android:id="@+id/tv_site"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="太和胡总站点"
+            android:textColor="@color/red"
+            android:textSize="@dimen/sp_30"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/dp_10"
+            />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_10"
+        android:scrollbars="none"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.god.gl.vaccination.widget.WrapContentGridView
+                android:id="@+id/gridView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="3"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_50"
+                android:textSize="@dimen/sp_25"
+                android:text="祝：您及家人健康快乐"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/red"
+
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

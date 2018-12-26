@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<TextView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/dp_10"
+    android:paddingRight="@dimen/dp_10"
+    android:paddingBottom="@dimen/dp_10"
+    app:layout_constraintEnd_toStartOf="@+id/tv_desc"
+    app:layout_constraintStart_toStartOf="parent"
+    android:text="一月：第二剂"
+    android:textColor="@color/gray2"
+    android:textSize="@dimen/sp_14"
+    />
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="加强免疫"
+        android:textColor="@color/gray2"
+        android:textSize="@dimen/sp_14"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+</android.support.constraint.ConstraintLayout>

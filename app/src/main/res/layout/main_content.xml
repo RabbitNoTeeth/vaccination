@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical"
+    >
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/gray"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/indexBtn"
+            style="@style/main_bottom_style"
+            android:drawableTop="@drawable/tab_index"
+            android:onClick="onTabClicked"
+            android:text="@string/tab_index"
+           />
+
+
+        <Button
+            android:id="@+id/myBtn"
+            style="@style/main_bottom_style"
+            android:drawableTop="@drawable/tab_my"
+            android:onClick="onTabClicked"
+            android:text="@string/tab_my"/>
+    </LinearLayout>
+</LinearLayout>
