@@ -9,10 +9,15 @@ import com.god.gl.vaccination.R;
 import com.god.gl.vaccination.base.BaseActivity;
 import com.god.gl.vaccination.common.CommonUrl;
 import com.god.gl.vaccination.main.home.adapter.TimeAdapter;
+import com.god.gl.vaccination.main.home.bean.StandardTimeBean;
 import com.god.gl.vaccination.main.login.LoginInfoCache;
+import com.god.gl.vaccination.util.GsonUtil;
+import com.god.gl.vaccination.util.ToastUtils;
 import com.god.gl.vaccination.util.okgo.OkGoUtil;
 import com.god.gl.vaccination.util.okgo.callback.OnResponse;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +36,7 @@ public class TimeActivity extends BaseActivity {
     SmartRefreshLayout mSmartRefreshLayout;
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
-    private List<String> mStrings = new ArrayList<>();
+    private List<StandardTimeBean.DataBean> mDataBeanList = new ArrayList<>();
     private TimeAdapter mTimeAdapter;
 
     @Override
@@ -41,33 +46,42 @@ public class TimeActivity extends BaseActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        for (int i=0;i<8;i++){
-            mStrings.add("");
-        }
-        mTimeAdapter = new TimeAdapter(mContext,R.layout.item_time_one,mStrings);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setAdapter(mTimeAdapter);
+
     }
 
     @Override
     protected void handleData() {
+        mTimeAdapter = new TimeAdapter(mContext,R.layout.item_time_one,mDataBeanList);
+        mRecyclerView.setAdapter(mTimeAdapter);
+        mSmartRefreshLayout.setEnableLoadMore(false);
+        mSmartRefreshLayout.autoRefresh();
+        mSmartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshLayout) {
+                  getData();
+            }
+        });
 
-        getData();
     }
 
     private void getData(){
         Map<String,String> params = new HashMap<>();
         params.put("user_token", LoginInfoCache.getToken(mContext));
-        OkGoUtil.request(mContext, true, CommonUrl.STANDARD_TIME, getTAG(), params,
+        OkGoUtil.request(mContext, false, CommonUrl.STANDARD_TIME, getTAG(), params,
                 new OnResponse<String>() {
                     @Override
                     public void responseOk(String temp) {
-
+                        StandardTimeBean standardTimeBean = GsonUtil.jsonToBean(temp,StandardTimeBean.class);
+                        mTimeAdapter.refresh(standardTimeBean.data);
+                        mSmartRefreshLayout.finishRefresh();
                     }
 
                     @Override
                     public void responseFail(String msg) {
+                        mSmartRefreshLayout.finishRefresh();
+                        ToastUtils.showMsg(mContext,msg);
 
                     }
                 });
